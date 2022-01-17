@@ -61,7 +61,13 @@ function FeedbackForm() {
                 <h2>How are you rate our service?</h2>
                 <div className="input-group">
                     <input onChange={changeHandler} value={text} type={`text`} placeholder={`Write a review`}/>
-                    <Button type={`submit`} version={`primary`} isDisabled={isDisabled}>Send</Button>
+                    {
+                        feedbackEdit.edit
+                            ?
+                            <Button type={`submit`} version={`primary`} isDisabled={isDisabled}>Update</Button>
+                            :
+                            <Button type={`submit`} version={`primary`} isDisabled={isDisabled}>Send</Button>
+                    }
                 </div>
 
                 {message && <div className="message">{message}</div>}
