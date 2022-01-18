@@ -12,7 +12,7 @@ export const FeedbackProvider = ({ children }) => {
     }, [])
 
     const getFeedbacks = async () => {
-        const response = await axios.get('http://localhost:5000/api/feedback', {
+        const response = await axios.get('https://feedback-mern-node.herokuapp.com/api/feedback', {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -27,7 +27,7 @@ export const FeedbackProvider = ({ children }) => {
     })
 
     const addFeedback = async (newFeedback) => {
-        const response = await axios.post('http://localhost:5000/api/feedback', {...newFeedback}, {
+        const response = await axios.post('https://feedback-mern-node.herokuapp.com/api/feedback', {...newFeedback}, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ export const FeedbackProvider = ({ children }) => {
     }
 
     const updateFeedback = async (id, updatedItem) => {
-        await axios.put(`http://localhost:5000/api/feedback/${id}`, {...updatedItem}, {
+        await axios.put(`https://feedback-mern-node.herokuapp.com/api/feedback/${id}`, {...updatedItem}, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -56,7 +56,7 @@ export const FeedbackProvider = ({ children }) => {
 
     const deleteFeedback = async (id) => {
         if (window.confirm('Are you sure about that')) {
-            await axios.delete(`http://localhost:5000/api/feedback/${id}`, {
+            await axios.delete(`https://feedback-mern-node.herokuapp.com/api/feedback/${id}`, {
                 params: { id }
             }).then((res) => console.log(res));
             setFeedback(feedback.filter((item) => item._id !== id));
