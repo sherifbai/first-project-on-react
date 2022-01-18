@@ -30,7 +30,7 @@ function FeedbackForm() {
             const newFeedback = {text, rating}
 
             if (feedbackEdit.edit) {
-                updateFeedback(feedbackEdit.item.id, newFeedback);
+                updateFeedback(feedbackEdit.item._id, newFeedback);
             } else {
                 addFeedback(newFeedback);
             }
@@ -60,7 +60,7 @@ function FeedbackForm() {
                 <RatingSelect select={(rating) => setRating(rating)}/>
                 <h2>How are you rate our service?</h2>
                 <div className="input-group">
-                    <input onChange={changeHandler} value={text} type={`text`} placeholder={`Write a review`}/>
+                    <input onChange={changeHandler} value={text} name={`text`} type={`text`} placeholder={`Write a review`}/>
                     {
                         feedbackEdit.edit
                             ?
